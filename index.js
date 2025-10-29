@@ -32,6 +32,26 @@ function renderProducts(list) {
   });
 }
 
+//bättre solution för knappar
+function filterByPrice(limit) {
+  const filtered = products.filter((p) => p.price < limit);
+  renderProducts(filtered);
+}
+
+document
+  .getElementById("btn20")
+  .addEventListener("click", () => filterByPrice(20));
+document
+  .getElementById("btn50")
+  .addEventListener("click", () => filterByPrice(50));
+document
+  .getElementById("btn200")
+  .addEventListener("click", () => filterByPrice(200));
+document
+  .getElementById("btnAll")
+  .addEventListener("click", () => renderProducts(products));
+
+/* istället alla addEventListeners:
 // Event listener för knapp "Under 20 kr"
 document.getElementById("btn20").addEventListener("click", () => {
   // Filtrera produkter som har pris mindre än 20
@@ -56,3 +76,4 @@ document.getElementById("btn200").addEventListener("click", () => {
 document.getElementById("btnAll").addEventListener("click", () => {
   renderProducts(products); // Rendera alla produkter utan filter
 });
+*/
